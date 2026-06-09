@@ -1,0 +1,140 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BASE */
+body {
+  background: #000;
+  color: #ddd;
+  font-family: monospace;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 20px;
+  color: #0ff;
+}
+
+/* CONTENEDOR */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* CANVAS ANSI */
+canvas {
+  display: block;
+  margin: 0 auto;
+  image-rendering: pixelated;
+}
+
+/* ===== LISTA GOODREADS ===== */
+
+.post-row {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #111;
+  text-decoration: none;
+  color: inherit;
+  align-items: flex-start;
+}
+
+.cover canvas {
+  display: block;
+}
+
+.post-info {
+  flex: 1;
+  max-width: 520px;
+}
+
+.post-title {
+  font-size: 18px;
+  color: #0ff;
+}
+
+.post-title:hover {
+  color: #fff;
+}
+
+.post-desc {
+  margin-top: 8px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.post-meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 700px) {
+
+  h1 {
+    font-size: 18px;
+    margin-top: 16px;
+  }
+
+  .container {
+    padding: 16px;
+    margin: 0 auto;
+  }
+
+  .post-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cover canvas {
+    margin: 0 auto;
+  }
+}
+body{
+  background:#000;
+  margin:0;
+  display:flex;
+  justify-content:center;
+}
+
+.bbs{
+  position:relative;
+  width:100%;
+  max-width:100vw;
+  overflow-x:auto; 
+  text-align:center;
+}
+.ansi-wrapper {
+  position: relative;
+  display: inline-block; /* el canvas define el tamaño */
+}
+
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.hit {
+  position: absolute;
+  display: block;
+  /*background: rgba(255,0,0,0.3);  para debug */
+}
+
+/* posiciones relativas al canvas */
+.hit.tarot {
+  top: 45%;   
+  left: 20%;
+  width: 60%;
+  height: 6%;
+}

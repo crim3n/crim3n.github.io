@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Viewer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/ansilove.js"></script>
+</head>
+<body>
+
+<div id="ansi"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const file = params.get("file");
+
+AnsiLove.render(file, function(canvas, sauce) {
+    document.getElementById("ansi").appendChild(canvas);
+}, {
+    font: "80x25",
+    bits: "9",
+    icecolors: 1,
+    "2x": 1
+});
+</script>
+
+</body>
+</html>

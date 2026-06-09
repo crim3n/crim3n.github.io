@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BBS</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="js/ansilove.js"></script>
+</head>
+<body>
+
+<div class="bbs">
+  <div class="ansi-wrapper">
+    <!-- canvas se insertará aquí -->
+    <a href="viewer.html?file=ansi/soma_vardel.ans" class="hit tarot"></a>
+  </div>
+</div>
+
+
+
+<script>
+AnsiLove.render("ansi/zairo_the_zine.ans", function(canvas){
+  // escala como en el viewer
+  canvas.style.maxWidth = "100%";
+  canvas.style.height = "auto";
+
+  // insertamos el canvas **al inicio del wrapper**, antes del <a>
+  const wrapper = document.querySelector('.ansi-wrapper');
+  wrapper.insertBefore(canvas, wrapper.firstChild);
+},{
+  bits:"9",
+  icecolors:1
+});
+
+</script>
+
+</body>
+</html>
