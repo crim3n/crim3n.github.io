@@ -3,18 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BBS</title>
+<title>.:CRIMEN:.</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="js/ansilove.js"></script>
 </head>
 <body>
 
+
 <div class="bbs">
+
   <div class="ansi-wrapper">
-    <!-- canvas se insertará aquí -->
-    <a href="viewer.html?file=ansi/soma_vardel.ans" class="hit tarot"></a>
+    <a href="viewer.html?file=ansi/grimorio1/grimorio1_folio1.ans" class="hit tarot"></a>
   </div>
+
+  <div id="indice">
+  </div>
+
 </div>
 
 
@@ -31,6 +36,44 @@ AnsiLove.render("ansi/crimen_index.ans", function(canvas){
 },{
   bits:"9",
   icecolors:1
+});
+
+const folios = [
+  {
+    indice: "ansi/grimorio1/indice_grimorio1_folio1.ans",
+    archivo: "ansi/grimorio1/grimorio1_folio1.ans"
+  }
+];
+
+folios.forEach(folio => {
+
+  const enlace = document.createElement("a");
+
+  enlace.href =
+    "viewer.html?file=" +
+    encodeURIComponent(folio.archivo);
+
+  enlace.style.display = "block";
+
+  AnsiLove.render(
+    folio.indice,
+    function(canvas){
+
+      canvas.style.maxWidth = "100%";
+      canvas.style.height = "auto";
+
+      enlace.appendChild(canvas);
+
+      document
+        .getElementById("indice")
+        .appendChild(enlace);
+
+    },{
+      bits:"9",
+      icecolors:1
+    }
+  );
+
 });
 
 </script>
