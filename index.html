@@ -10,11 +10,9 @@
 </head>
 <body>
 
-
 <div class="bbs">
 
   <div class="ansi-wrapper">
-    <a href="viewer.html?file=ansi/grimorio1/grimorio1_folio1.ans" class="hit tarot"></a>
   </div>
 
   <div id="indice">
@@ -22,17 +20,15 @@
 
 </div>
 
-
-
 <script>
 AnsiLove.render("ansi/crimen_index.ans", function(canvas){
-  // escala como en el viewer
+
   canvas.style.maxWidth = "100%";
   canvas.style.height = "auto";
 
-  // insertamos el canvas **al inicio del wrapper**, antes del <a>
   const wrapper = document.querySelector('.ansi-wrapper');
   wrapper.insertBefore(canvas, wrapper.firstChild);
+
 },{
   bits:"9",
   icecolors:1
@@ -75,7 +71,6 @@ folios.forEach(folio => {
   );
 
 });
-
 </script>
 
 </body>
