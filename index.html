@@ -26,7 +26,7 @@ AnsiLove.render("ansi/crimen_index.ans", function(canvas){
   canvas.style.maxWidth = "100%";
   canvas.style.height = "auto";
 
-  const wrapper = document.querySelector('.ansi-wrapper');
+  const wrapper = document.querySelector(".ansi-wrapper");
   wrapper.insertBefore(canvas, wrapper.firstChild);
 
 },{
@@ -34,25 +34,22 @@ AnsiLove.render("ansi/crimen_index.ans", function(canvas){
   icecolors:1
 });
 
-const folios = [
+const grimorios = [
   {
     indice: "ansi/grimorio1/indice_grimorio1_folio1.ans",
-    archivo: "ansi/grimorio1/grimorio1_folio1.ans"
+    pagina: "ansi/grimorio1/index.html"
   }
 ];
 
-folios.forEach(folio => {
+grimorios.forEach(grimorio => {
 
   const enlace = document.createElement("a");
 
-  enlace.href =
-    "viewer.html?file=" +
-    encodeURIComponent(folio.archivo);
-
+  enlace.href = grimorio.pagina;
   enlace.style.display = "block";
 
   AnsiLove.render(
-    folio.indice,
+    grimorio.indice,
     function(canvas){
 
       canvas.style.maxWidth = "100%";

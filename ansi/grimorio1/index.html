@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grimorio 1</title>
+
+<link rel="stylesheet" href="../../style.css">
+<script src="../../js/ansilove.js"></script>
+</head>
+<body>
+
+<div class="bbs">
+
+  <div id="autoria"></div>
+  <div id="navs"></div>
+
+</div>
+
+<script>
+
+const base = "./";
+
+/* 1. ZONA DE AUTORÍA */
+AnsiLove.render(base + "zona_de_autoria.ans", function(canvas){
+
+  canvas.style.maxWidth = "100%";
+  canvas.style.height = "auto";
+
+  document.getElementById("autoria").appendChild(canvas);
+
+}, {
+  bits: "9",
+  icecolors: 1
+});
+
+
+/* 2. NAVS DEL GRIMORIO */
+const navs = [
+  {
+    file: "nav_folio1.ans",
+    link: "grimorio1_folio1.ans"
+  },
+  {
+    file: "nav_folio2.ans",
+    link: "grimorio1_folio2.ans"
+  }
+];
+
+/* render de cada nav como link */
+navs.forEach(n => {
+
+  const a = document.createElement("a");
+
+  a.href = "../../viewer.html?file=" +
+    encodeURIComponent("ansi/grimorio1/" + n.link);
+
+  a.style.display = "block";
+
+  AnsiLove.render(base + n.file, function(canvas){
+
+    canvas.style.maxWidth = "100%";
+    canvas.style.height = "auto";
+
+    a.appendChild(canvas);
+    document.getElementById("navs").appendChild(a);
+
+  }, {
+    bits: "9",
+    icecolors: 1
+  });
+
+});
+
+</script>
+
+</body>
+</html>
